@@ -133,6 +133,22 @@ namespace FoodTable.UI.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult Show(Guid id)
+        {
+            AppUser appUser = _appUserService.GetByID(id);
+            AppUserDTO model = new AppUserDTO();
+            model.ID = appUser.ID ;
+            model.FirstName = appUser.FirstName ;
+            model.LastName = appUser.LastName;
+            model.Address = appUser.Address;
+            model.PhoneNumber = appUser.PhoneNumber;
+            model.Email = appUser.Email;
+            model.UserName = appUser.UserName;
+            model.Password = appUser.Password;
+            model.ImagePath = appUser.ImagePath;
+            return View(model);
+        }
+
 
         public RedirectResult Delete(Guid id)
         {
